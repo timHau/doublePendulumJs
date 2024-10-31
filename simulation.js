@@ -169,9 +169,7 @@ const gravitySlider = document.querySelector("#gravity");
 gravitySlider.addEventListener("input", () => {
   gravity = parseFloat(gravitySlider.value);
   document.querySelector("#gravityValue").innerHTML = gravity;
-  for (let i = 0; i < N; ++i) {
-    pendulums[i].gravity = gravity;
-  }
+  pendulums = resetPendulum();
 });
 
 const lengthSlider = document.querySelector("#length");

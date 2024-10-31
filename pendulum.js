@@ -169,7 +169,7 @@ export class Pendulum {
     const [x2, y2] = [x1 + l2 * Math.sin(theta2), y1 + l2 * Math.cos(theta2)];
 
     if (this.trace.length > this.maxTraceLength) {
-      this.trace.shift();
+      this.trace.splice(0, this.trace.length - this.maxTraceLength);
     }
     this.trace.push([x2, y2]);
 
@@ -189,7 +189,7 @@ export class Pendulum {
 
     if (this.showPendulum) {
       context.strokeStyle = this.strokeColor;
-      context.globalAlpha = 0.2;
+      context.globalAlpha = 0.1;
       context.beginPath();
       context.moveTo(...origin);
       context.lineTo(x1, y1);

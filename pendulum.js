@@ -9,7 +9,7 @@ export class Pendulum {
     lengths,
     g,
     maxTraceLength,
-    damping,
+    useDamping,
     showPendulum,
     showTrace,
     dt,
@@ -21,15 +21,16 @@ export class Pendulum {
     this.velocities = initVelocities || [0, 0];
     this.g = g || 9.81;
     this.dt = dt || 0.01;
-    this.r = 5;
+    this.r = 4;
     this.trace = [];
     this.maxTraceLength = maxTraceLength || 100;
-    this.damping = damping;
+    this.useDamping = useDamping;
     this.showPendulum = showPendulum;
     this.showTrace = showTrace;
     this.idx = idx;
-    this.strokeColor = "#bbb";
+    this.strokeColor = "rgb(50, 61, 81)";
     this.colorScheme = colorScheme || "rainbow";
+    this.dampingValue = 0.999;
   }
 
   // Functions to calculate angular accelerations
@@ -123,9 +124,9 @@ export class Pendulum {
         (this.dt / 6) * (k1a2_v + 2 * k2a2_v + 2 * k3a2_v + k4a2_v),
     ];
 
-    if (this.damping) {
-      this.velocities[0] *= 0.999;
-      this.velocities[1] *= 0.999;
+    if (this.useDamping) {
+      this.velocities[0] *= this.dampingValue;
+      this.velocities[1] *= this.dampingValue;
     }
   }
 
@@ -151,6 +152,18 @@ export class Pendulum {
     }
     if (this.colorScheme === "viridis") {
       scale = d3.scaleSequential(d3.interpolateViridis);
+    }
+    if (this.colorScheme === "plasma") {
+      scale = d3.scaleSequential(d3.interpolatePlasma);
+    }
+    if (this.colorScheme === "inferno") {
+      scale = d3.scaleSequential(d3.interpolateInferno);
+    }
+    if (this.colorScheme === "warm") {
+      scale = d3.scaleSequential(d3.interpolateWarm);
+    }
+    if (this.colorScheme === "cubehelix") {
+      scale = d3.scaleSequential(d3.interpolateCubehelixDefault);
     }
     scale = scale.domain([0, 1]);
     return scale;
@@ -189,7 +202,7 @@ export class Pendulum {
 
     if (this.showPendulum) {
       context.strokeStyle = this.strokeColor;
-      context.globalAlpha = 0.1;
+      context.globalAlpha = 0.3;
       context.beginPath();
       context.moveTo(...origin);
       context.lineTo(x1, y1);
@@ -203,18 +216,18 @@ export class Pendulum {
 
       context.beginPath();
       context.fillStyle = this.strokeColor;
-      context.arc(...origin, this.r / 2, 0, 2 * Math.PI);
+      context.arc(...origin, this.r, 0, 2 * Math.PI);
       context.fill();
 
       context.beginPath();
-      context.fillStyle = "rgba(120, 120, 120, 0.5)";
+      context.fillStyle = this.strokeColor;
       context.arc(x1, y1, this.r, 0, 2 * Math.PI);
       context.fill();
     }
 
     context.beginPath();
     context.fillStyle = fillColor;
-    context.arc(x2, y2, this.r, 0, 2 * Math.PI);
+    context.arc(x2, y2, 1.5 * this.r, 0, 2 * Math.PI);
     context.fill();
   }
 

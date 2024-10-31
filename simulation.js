@@ -148,7 +148,7 @@ showTraceCheckbox.addEventListener("change", () => {
   }
 });
 
-const dampingCheckbox = document.querySelector("#damping");
+const dampingCheckbox = document.querySelector("#useDamping");
 dampingCheckbox.addEventListener("change", () => {
   damping = dampingCheckbox.checked;
   for (let i = 0; i < N; ++i) {

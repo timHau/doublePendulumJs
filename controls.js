@@ -77,7 +77,7 @@ let mass = 1;
 let length = 200;
 let gravity = 9.81;
 let maxTraceLength = 100;
-let damping = false;
+let useDamping = false;
 let showPendulum = true;
 let showTrace = true;
 let dt = 0.02;
@@ -91,7 +91,7 @@ const resetPendulum = () =>
     length,
     gravity,
     maxTraceLength,
-    damping,
+    useDamping,
     showPendulum,
     showTrace,
     dt,
@@ -149,9 +149,9 @@ showTraceCheckbox.addEventListener("change", () => {
 
 const dampingCheckbox = document.querySelector("#useDamping");
 dampingCheckbox.addEventListener("change", () => {
-  damping = dampingCheckbox.checked;
+  useDamping = dampingCheckbox.checked;
   for (let i = 0; i < N; ++i) {
-    pendulums[i].damping = damping;
+    pendulums[i].useDamping = useDamping;
   }
 });
 

@@ -80,7 +80,7 @@ let maxTraceLength = 100;
 let useDamping = false;
 let showPendulum = true;
 let showTrace = true;
-let dt = 0.02;
+let dt = 0.03;
 let colorScheme = "rainbow";
 let angles = [90, -20];
 const resetPendulum = () =>

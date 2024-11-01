@@ -1,169 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div class="controls-container">
-      <div id="hide">⚪️</div>
 
-      <div id="controls">
-        <div class="slider">
-          <div>
-            <label>Theta 1</label>
-            <span id="theta1Value">90</span>
-          </div>
-          <input type="range" id="theta1" min="-90" max="90" value="90" />
-        </div>
-        <div class="slider">
-          <div>
-            <label>Theta 2</label>
-            <span id="theta2Value">0</span>
-          </div>
-          <input type="range" id="theta2" min="-90" max="90" value="-20" />
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
 
-        <div class="slider">
-          <div>
-            <label>Number of Pendulums</label>
-            <span id="numValue">160</span>
-          </div>
-          <input type="range" id="N" min="1" max="500" value="160" />
-        </div>
+<body>
+  <div class="controls-container">
+    <div id="hide">⚪️</div>
 
-        <div class="slider">
-          <div>
-            <label>Gravity</label>
-            <span id="gravityValue">9.81</span>
-          </div>
-          <input
-            type="range"
-            id="gravity"
-            min="0"
-            max="25"
-            value="9.81"
-            step="0.1"
-          />
+    <div id="controls">
+      <div class="slider">
+        <div>
+          <label>Theta 1</label>
+          <span id="theta1Value">90</span>
         </div>
+        <input type="range" id="theta1" min="-90" max="90" value="90" />
+      </div>
+      <div class="slider">
+        <div>
+          <label>Theta 2</label>
+          <span id="theta2Value">0</span>
+        </div>
+        <input type="range" id="theta2" min="-90" max="90" value="-20" />
+      </div>
 
-        <div class="slider">
-          <div>
-            <label>Velocity</label>
-            <span id="velValue">0.3</span>
-          </div>
-          <input
-            type="range"
-            id="velocity"
-            min="-1"
-            max="1"
-            value="0.3"
-            step="0.01"
-          />
+      <div class="slider">
+        <div>
+          <label>Number of Pendulums</label>
+          <span id="numValue">160</span>
         </div>
+        <input type="range" id="N" min="1" max="500" value="160" />
+      </div>
 
-        <div class="slider">
-          <div>
-            <label>Mass</label>
-            <span id="massValue">1</span>
-          </div>
-          <input
-            type="range"
-            id="mass"
-            min="0.1"
-            max="3"
-            value="1"
-            step="0.1"
-          />
+      <div class="slider">
+        <div>
+          <label>Gravity</label>
+          <span id="gravityValue">9.81</span>
         </div>
+        <input type="range" id="gravity" min="0" max="25" value="9.81" step="0.1" />
+      </div>
 
-        <div class="slider">
-          <div>
-            <label>Timestep</label>
-            <span id="timeValue">0.02</span>
-          </div>
-          <input
-            type="range"
-            id="time"
-            min="0.001"
-            max="0.09"
-            value="0.02"
-            step="0.001"
-          />
+      <div class="slider">
+        <div>
+          <label>Velocity</label>
+          <span id="velValue">0.3</span>
         </div>
+        <input type="range" id="velocity" min="-1" max="1" value="0.3" step="0.01" />
+      </div>
 
-        <div class="slider">
-          <div>
-            <label>Lengths</label>
-            <span id="lengthValue">200</span>
-          </div>
-          <input
-            type="range"
-            id="length"
-            min="50"
-            max="400"
-            value="200"
-            step="10"
-          />
+      <div class="slider">
+        <div>
+          <label>Mass</label>
+          <span id="massValue">1</span>
         </div>
+        <input type="range" id="mass" min="0.1" max="3" value="1" step="0.1" />
+      </div>
 
-        <div class="slider">
-          <div>
-            <label>Max. Trace Length</label>
-            <span id="traceLengthValue">100</span>
-          </div>
-          <input
-            type="range"
-            id="traceLength"
-            min="0"
-            max="400"
-            value="100"
-            step="10"
-          />
+      <div class="slider">
+        <div>
+          <label>Timestep</label>
+          <span id="timeValue">0.03</span>
         </div>
+        <input type="range" id="time" min="0.001" max="0.09" value="0.02" step="0.001" />
+      </div>
 
-        <div class="checkbox">
-          <input type="checkbox" id="useDamping" />
-          <label for="useDamping">Use Damping</label>
+      <div class="slider">
+        <div>
+          <label>Lengths</label>
+          <span id="lengthValue">200</span>
         </div>
+        <input type="range" id="length" min="50" max="400" value="200" step="10" />
+      </div>
 
-        <div class="checkbox">
-          <input type="checkbox" id="showTrace" checked />
-          <label for="showTrace">Show Trace</label>
+      <div class="slider">
+        <div>
+          <label>Max. Trace Length</label>
+          <span id="traceLengthValue">100</span>
         </div>
+        <input type="range" id="traceLength" min="0" max="400" value="100" step="10" />
+      </div>
 
-        <div class="checkbox">
-          <input type="checkbox" id="showPendulum" checked />
-          <label for="showPendulum">Show Pendulum</label>
-        </div>
+      <div class="checkbox">
+        <input type="checkbox" id="useDamping" />
+        <label for="useDamping">Use Damping</label>
+      </div>
 
-        <div class="select">
-          <label>Color Scheme</label>
-          <select id="colorScheme" name="colorScheme">
-            <option value="rainbow">Rainbow</option>
-            <option value="sinebow">Sinebow</option>
-            <option value="cividis">Cividis</option>
-            <option value="plasma">Plasma</option>
-            <option value="inferno">Inferno</option>
-            <option value="warm">Warm</option>
-            <option value="cool">Cool</option>
-            <option value="viridis">Viridis</option>
-            <option value="magma">Magma</option>
-            <option value="cubehelix">CubeHelixDefault</option>
-          </select>
-        </div>
-        <div class="buttons">
-          <button id="start">Start</button>
-          <button id="restart">Restart</button>
-        </div>
+      <div class="checkbox">
+        <input type="checkbox" id="showTrace" checked />
+        <label for="showTrace">Show Trace</label>
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" id="showPendulum" checked />
+        <label for="showPendulum">Show Pendulum</label>
+      </div>
+
+      <div class="select">
+        <label>Color Scheme</label>
+        <select id="colorScheme" name="colorScheme">
+          <option value="rainbow">Rainbow</option>
+          <option value="sinebow">Sinebow</option>
+          <option value="cividis">Cividis</option>
+          <option value="plasma">Plasma</option>
+          <option value="inferno">Inferno</option>
+          <option value="warm">Warm</option>
+          <option value="cool">Cool</option>
+          <option value="viridis">Viridis</option>
+          <option value="magma">Magma</option>
+          <option value="cubehelix">CubeHelixDefault</option>
+        </select>
+      </div>
+      <div class="buttons">
+        <button id="start">Start</button>
+        <button id="restart">Restart</button>
       </div>
     </div>
+  </div>
 
-    <div id="app">
-      <canvas></canvas>
-    </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+  <div id="app">
+    <canvas></canvas>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>

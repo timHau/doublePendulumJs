@@ -20,7 +20,7 @@ export class Pendulum {
     this.masses = masses || [1, 1];
     this.velocities = initVelocities || [0, 0];
     this.g = g || 9.81;
-    this.dt = dt || 0.01;
+    this.dt = dt || 0.03;
     this.r = 4;
     this.trace = [];
     this.maxTraceLength = maxTraceLength || 100;
@@ -119,9 +119,9 @@ export class Pendulum {
     ];
     this.velocities = [
       this.velocities[0] +
-        (this.dt / 6) * (k1a1_v + 2 * k2a1_v + 2 * k3a1_v + k4a1_v),
+      (this.dt / 6) * (k1a1_v + 2 * k2a1_v + 2 * k3a1_v + k4a1_v),
       this.velocities[1] +
-        (this.dt / 6) * (k1a2_v + 2 * k2a2_v + 2 * k3a2_v + k4a2_v),
+      (this.dt / 6) * (k1a2_v + 2 * k2a2_v + 2 * k3a2_v + k4a2_v),
     ];
 
     if (this.useDamping) {

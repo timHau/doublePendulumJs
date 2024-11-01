@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap');
+
+
 body {
   padding: 0;
   margin: 0;
   color: rgb(203, 220, 233);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #app {
@@ -12,23 +15,23 @@ body {
 }
 
 canvas {
-  background-color: rgb(27, 32, 47);
+  background-color: rgb(0, 0, 0);
 }
 
 .controls-container {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1rem;
+  right: 1rem;
   width: 20rem;
 
   background: rgba(163, 205, 249, 0.17);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(163, 205, 249, 0.3);
 
-  border-radius: 0 0 0 5px;
+  border-radius: 12px;
 }
 
 #controls {
@@ -75,9 +78,11 @@ select {
 }
 
 .slider span {
-  background-color: rgba(151, 151, 219, 0.45);
+  /* background-color: #ffffff21; */
   padding: 0.2rem 0.3rem;
+  color: #36ffbf;
   border-radius: 5px;
+  font-size: smaller;
 }
 
 .slider div {
@@ -90,6 +95,7 @@ select {
   width: 90%;
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
   margin-bottom: 0.5rem;
 }
 
@@ -106,6 +112,10 @@ select {
   font-size: smaller;
 }
 
+select {
+  padding: 0.5rem;
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -113,8 +123,11 @@ select {
 }
 
 #hide {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 0.2rem;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.4rem 0.8rem;
 }
 
 #hide:hover {
@@ -122,9 +135,43 @@ select {
 }
 
 span.no_selection {
-  user-select: none; /* standard syntax */
-  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-  -moz-user-select: none; /* mozilla browsers */
-  -khtml-user-select: none; /* webkit (konqueror) browsers */
-  -ms-user-select: none; /* IE10+ */
+  user-select: none;
+  /* standard syntax */
+  -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
+  -moz-user-select: none;
+  /* mozilla browsers */
+  -khtml-user-select: none;
+  /* webkit (konqueror) browsers */
+  -ms-user-select: none;
+  /* IE10+ */
+}
+
+input[type='range'] {
+  overflow: hidden;
+  -webkit-appearance: none;
+  background-color: #ffffff21;
+  border-radius: 2px;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 10px;
+  -webkit-appearance: none;
+  color: #ffffff21;
+  margin-top: -1px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 10px;
+  -webkit-appearance: none;
+  height: 10px;
+  cursor: ew-resize;
+  background: #36ffbf;
+  box-shadow: -180px 0 0 180px #36ffbf;
+}
+
+
+input[type="checkbox"] {
+  background-color: #ffffff21;
+  accent-color: #36ffbf;
 }
